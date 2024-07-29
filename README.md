@@ -43,7 +43,7 @@ The key tables in the data model include:
 ## Measures (DAX)
 Several DAX measures were created to support the analysis:
 - % of All Orders
-```Dax
+```dax
 % of All Orders = 
 DIVIDE(
     [Total Orders], 
@@ -51,7 +51,7 @@ DIVIDE(
 )
   ```
 - % of All Returns
-```Dax
+```dax
 % of All Returns = 
 DIVIDE(
     [Total Returns],
@@ -59,7 +59,7 @@ DIVIDE(
 )
 ```
 - 10 Day Rolling Revenue
-```Dax
+```dax
 10-day Rolling Revenue = 
 CALCULATE(
     [Total Revenue],
@@ -74,7 +74,7 @@ CALCULATE(
 )
 ```
 - 90 Day Rolling Profit
-```Dax
+```dax
 90-day Rolling Profit = 
 CALCULATE(
     [Total Profit],
@@ -89,16 +89,16 @@ CALCULATE(
 )
 ```
 - Adjusted Price
-```Dax
+```dax
 Adjusted Price = [Average Retail Price] * (1 + 'Price Adjustment (%)'[Price Adjustment (%) Value])
 ```
 - Adjusted Profit
-```Dax
+```dax
 Adjusted Profit = 
 [Adjusted Revenue] - [Total Cost]
 ```
 - Adjusted Revenue
-```Dax
+```dax
 Adjusted Revenue = 
 SUMX(
     'Sales Data',
@@ -150,7 +150,7 @@ CALCULATE(
 )
 ```
 - Bike Returns
-```
+```dax
 Bike Returns = 
 CALCULATE(
     [Quantity Returned],
@@ -159,7 +159,7 @@ CALCULATE(
 ```
 
 - Bike Sales
-```Dax
+```dax
 Bike Sales = 
 CALCULATE(
     [Quantity Sold],
@@ -167,7 +167,7 @@ CALCULATE(
 )
 ```
 - Bulk Orders
-```Dax
+```dax
 Bulk Orders = 
 CALCULATE(
     [Total Orders],
@@ -176,7 +176,7 @@ CALCULATE(
 ```
 
 - High Ticket Orders
-```Dax
+```dax
 High Ticket Orders = 
 CALCULATE(
     [Total Orders],
