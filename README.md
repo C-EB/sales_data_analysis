@@ -371,7 +371,3 @@ The project includes several dashboards to visualize the insights derived from t
 - Product Category Analysis
 - Return Rates
 
-To add images of your dashboards, include them in the `images` directory and reference them as shown below:
-```markdown
-![Sales Performance Dashboard](./images/sales_performance_dashboard.png)
-![Customer Demographics Dashboard](./images/customer_demographics_dashboard.png)
