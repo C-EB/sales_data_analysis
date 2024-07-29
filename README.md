@@ -650,6 +650,10 @@ The Key Influencers Dashboard provides insights into the factors that significan
 
 ![Key Influencers Dashboard Overview](assets/images/Key_Influences.png)
 
+
+## Final Dashboard
+
+![Final dashboard](assets/images/dashboard.gif)
 ## Summary
 The Sales Data Analysis project has successfully provided valuable insights into the performance of sales across various dimensions, including products, customers, and geographical regions. By leveraging Power BI's powerful visualization and analytical capabilities, we have created a comprehensive suite of dashboards that enable data-driven decision-making and strategic planning.
 
