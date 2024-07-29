@@ -44,7 +44,7 @@ The key tables in the data model include:
 Several DAX measures were created to support the analysis:
 - % of All Orders
 ```Dax
-  % of All Orders = 
+% of All Orders = 
 DIVIDE(
     [Total Orders], 
     [All Orders]
@@ -60,7 +60,7 @@ DIVIDE(
 ```
 - 10 Day Rolling Revenue
 ```Dax
-  10-day Rolling Revenue = 
+10-day Rolling Revenue = 
 CALCULATE(
     [Total Revenue],
     DATESINPERIOD(
@@ -90,16 +90,16 @@ CALCULATE(
 ```
 - Adjusted Price
 ```Dax
-  Adjusted Price = [Average Retail Price] * (1 + 'Price Adjustment (%)'[Price Adjustment (%) Value])
+Adjusted Price = [Average Retail Price] * (1 + 'Price Adjustment (%)'[Price Adjustment (%) Value])
 ```
 - Adjusted Profit
 ```Dax
-  Adjusted Profit = 
+Adjusted Profit = 
 [Adjusted Revenue] - [Total Cost]
 ```
 - Adjusted Revenue
 ```Dax
-  Adjusted Revenue = 
+Adjusted Revenue = 
 SUMX(
     'Sales Data',
     'Sales Data'[OrderQuantity]
@@ -108,7 +108,7 @@ SUMX(
 ```
 - All Orders
 ```dax
-  All Orders = 
+All Orders = 
 CALCULATE(
     [Total Orders], 
     ALL(
@@ -128,7 +128,7 @@ CALCULATE(
 ```
 - Average Retail Price
 ```dax
-  Average Retail Price = 
+Average Retail Price = 
 AVERAGE(
     'Product Lookup'[ProductPrice]
 )
@@ -143,7 +143,7 @@ DIVIDE(
 ```
 - Bike Return Rate
 ```dax
-  Bike Return Rate = 
+Bike Return Rate = 
 CALCULATE(
     [Return Rate],
     'Product Categories Lookup'[CategoryName] = "Bikes"
@@ -168,7 +168,7 @@ CALCULATE(
 ```
 - Bulk Orders
 ```Dax
-  Bulk Orders = 
+Bulk Orders = 
 CALCULATE(
     [Total Orders],
     'Sales Data'[OrderQuantity] > 1
@@ -188,7 +188,7 @@ CALCULATE(
 ```
 - Order Target
 ```dax
-  Order Target = 
+Order Target = 
 [Previous Month Orders] * 1.1
 ```
 - Order Target Gap
@@ -197,7 +197,7 @@ Order Target Gap = [Total Orders] - [Order Target]
 ```
 - Overall Average Price
 ```dax
-  Overall Average Price = 
+Overall Average Price = 
 CALCULATE(
     [Average Retail Price],
     ALL(
@@ -219,7 +219,7 @@ CALCULATE(
 ```
 - Previous Month Profit
 ```dax
-  Previous Month Profit = 
+Previous Month Profit = 
 CALCULATE(
     [Total Profit],
     DATEADD(
@@ -243,7 +243,7 @@ CALCULATE(
 ```
 - Previous Month Revenue
 ```dax
-  Previous Month Revenue = 
+Previous Month Revenue = 
 CALCULATE(
     [Total Revenue],
     DATEADD(
@@ -260,7 +260,7 @@ Profit Target =
 ```
 - Profit Target Gap
 ```dax
-  Profit Target Gap = [Total Profit] - [Profit Target]
+Profit Target Gap = [Total Profit] - [Profit Target]
 ```
 - Quantity Returned = 
 ```dax
@@ -278,24 +278,91 @@ SUM(
 ```
 - Return Rate
 ```dax
-  Return Rate = 
+Return Rate = 
 DIVIDE(
     [Quantity Returned],
     [Quantity Sold],
     "No Sales"
 )
 ```
-
-- Average Retail Price
-```Dax
-  Average Retail Price = 
-AVERAGE(
-    'Product Lookup'[ProductPrice]
+- Revenue Target
+```dax
+Revenue Target = 
+[Previous Month Revenue] * 1.1
+```
+- Revenue Target Gap
+```dax
+Revenue Target Gap = [Total Revenue] - [Revenue Target]
+```
+- Total Cost
+```dax
+Total Cost = 
+SUMX(
+    'Sales Data',
+    'Sales Data'[OrderQuantity]
+    *
+    RELATED(
+        'Product Lookup'[ProductCost]
+    )
 )
 ```
-- Total Revenue
+- Total Customers
+```dax
+Total Customers = 
+DISTINCTCOUNT(
+    'Sales Data'[CustomerKey]
+)
+```
+- Total Orders
+```dax
+Total Orders = 
+DISTINCTCOUNT(
+    'Sales Data'[OrderNumber]
+)
+```
 - Total Profit
+```dax
+Total Profit = 
+[Total Revenue] - [Total Cost]
+```
 - Total Returns
+```dax
+Total Returns = 
+COUNT(
+    'Returns Data'[ReturnQuantity]
+)
+```
+
+- Total Revenue
+```dax
+Total Revenue = 
+SUMX(
+    'Sales Data',
+    'Sales Data'[OrderQuantity]
+    *
+    RELATED(
+        'Product Lookup'[ProductPrice]
+    )
+)
+```
+- Weekend Orders
+```dax
+Weekend Orders = 
+CALCULATE(
+    [Total Orders],
+    'Calendar Lookup'[Weekend] = "Weekend"
+)
+```
+-YTD Revenue
+```dax
+YTD Revenue = 
+CALCULATE(
+    [Total Revenue],
+    DATESYTD(
+        'Calendar Lookup'[Date]
+    )
+) 
+```
 
 ## Dashboards
 The project includes several dashboards to visualize the insights derived from the data. Key dashboards cover:
