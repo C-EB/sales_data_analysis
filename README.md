@@ -253,7 +253,7 @@ CALCULATE(
     )
 )
 ```
-- Profit Target = 
+- Profit Target
 ```dax
 Profit Target = 
 [Previous Month Profit] * 1.1
@@ -262,14 +262,14 @@ Profit Target =
 ```dax
 Profit Target Gap = [Total Profit] - [Profit Target]
 ```
-- Quantity Returned = 
+- Quantity Returned
 ```dax
 Quantity Returned = 
 SUM(
     'Returns Data'[ReturnQuantity]
 )
 ```
-- Quantity Sold = 
+- Quantity Sold 
 ```dax
 Quantity Sold = 
 SUM(
