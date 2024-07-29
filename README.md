@@ -353,7 +353,7 @@ CALCULATE(
     'Calendar Lookup'[Weekend] = "Weekend"
 )
 ```
--YTD Revenue
+- YTD Revenue
 ```dax
 YTD Revenue = 
 CALCULATE(
